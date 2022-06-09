@@ -9,10 +9,17 @@ L=function(x,n){
   return(x)
 }
 
+F=function(x,n){
+  if (!require(pacman)) install.packages("pacman")
+  pacman::p_load(stats,dplyr)
+  x=c(dplyr::lead(x,n))
+  return(x)
+}
+
 
 D=function(x,n,d){
   if (!require(pacman)) install.packages("pacman")
   pacman::p_load(stats)
-  x=c(rep(NA,max(d,n)), diff(x,lag=n, differences=d))
+  x=c(rep(NA,max(d,n)), stats::diff(x,lag=n, differences=d))
   return(x)
 }
