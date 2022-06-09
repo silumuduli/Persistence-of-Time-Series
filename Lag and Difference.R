@@ -19,7 +19,7 @@ F=function(x,n){
 
 D=function(x,n,d){
   if (!require(pacman)) install.packages("pacman")
-  pacman::p_load(base)
-  x=c(rep(NA,max(d,n)), base::diff(x,lag=n, differences=d))
+  pacman::p_load(base,stats)
+  x=c(rep(NA,max(d,n)), diff(x,lag=n, differences=d))
   return(x)
 }
