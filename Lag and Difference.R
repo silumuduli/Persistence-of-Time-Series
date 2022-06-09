@@ -4,8 +4,8 @@
 # x= vector
 L=function(x,n){
   if (!require(pacman)) install.packages("pacman")
-  pacman::p_load(stats)
-  x=c(Lag(x,n))
+  pacman::p_load(stats,dplyr)
+  x=c(lag(x,n))
   return(x)
 }
 
